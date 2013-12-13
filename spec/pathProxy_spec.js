@@ -48,6 +48,14 @@ describe('#pathProxy', function() {
     createsAProxyObjectConstructorWith(base.foo('bar').baz(), ['foo', 'bar', 'baz'], ['bar'], '/foo/bar/baz');
   });
 
+  context('when the path is a segment followed by a segment with a parameter', function() {
+    var base = new Base();
+    pathProxy.pathProxy(Base, '/foo/baz/{qux}');
+
+    createsAProxyObjectConstructorWith(base.foo(), ['foo'], [], '/foo');
+    createsAProxyObjectConstructorWith(base.foo().baz('qux'), ['foo', 'baz', 'qux'], ['qux'], '/foo/baz/qux');
+  });
+
   context('when the path is a segment with a parameter followed by a segment with a parameter', function() {
     var base = new Base();
     pathProxy.pathProxy(Base, '/foo/{bar}/baz/{qux}');
