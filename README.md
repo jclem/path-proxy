@@ -77,10 +77,13 @@ client.delete("/foo/qux/bar/baz", function (message) {
 });
 ```
 
-## The End
+## Tests
 
-That's all there is for now. This is might prove to be a useful tool for working
-on documented API clients in the future. For now, don't rely on it. There are
-no tests, and it's more of a fun experiment at the moment
+path-proxy uses jasmine-node for tests. To run them:
+
+```sh
+$ npm install
+$ npm test
+```
 
 [heroku_client]: https://github.com/heroku/node-heroku-client

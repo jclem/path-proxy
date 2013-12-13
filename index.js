@@ -59,7 +59,7 @@ exports.pathProxy = function pathProxy (base, path) {
       constructor = function (base, params, pathSegments) {
         this.base         = base;
         this.params       = params;
-        this.pathSegments = pathSegments.filter(function (segment) { return segment });
+        this.pathSegments = pathSegments;
         this.path         = "/" + pathSegments.join("/");
       };
 
@@ -77,6 +77,7 @@ exports.pathProxy = function pathProxy (base, path) {
 
         pathSegments = this.pathSegments || [];
         pathSegments = pathSegments.concat([segment, param]);
+        pathSegments = pathSegments.filter(function (segment) { return segment });
 
         return new constructor(_base, params, pathSegments);
       };
