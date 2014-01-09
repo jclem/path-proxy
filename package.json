@@ -1,6 +1,6 @@
 {
   "name": "path-proxy",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "A path proxy object constructor",
   "main": "index.js",
   "scripts": {
